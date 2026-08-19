@@ -5,10 +5,9 @@ from pathlib import Path
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-api_key = '58724fa6bc7afe1296ce1056ebeb7929'  # Replace with your actual API key
-url = f'https://api.openweathermap.org/data/2.5/weather?q=Sao Paulo,BR&units=metric&appid={api_key}'
-
 def extract_weather_data(url: str):
+    print(f"URL: {url}")
+    print(f"Tipo da URL: {type(url)}")
     response = requests.get(url)
     data = response.json()
 
@@ -21,5 +20,3 @@ def extract_weather_data(url: str):
 
     logging.info("arquivo salvo com sucesso em: %s", output_path)
     return data
-
-extract_weather_data(url)
