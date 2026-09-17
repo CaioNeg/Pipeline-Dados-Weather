@@ -7,11 +7,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Deixe a biblioteca achar o .env sozinha!
 load_dotenv()
 
-# ATENÇÃO: Confirme se dentro do seu arquivo .env as letras 
-# estão exatamente iguais ao que está dentro das aspas abaixo!
 user = os.getenv('USER') 
 password = os.getenv('PASSWORD')
 database = os.getenv('DATABASE')
@@ -37,3 +34,4 @@ def load_weather_data(table_name:str, df):
     
     df_check = pd.read_sql(f'SELECT * FROM {table_name}', con=engine)
     logging.info(f"Total de registros na tabela: {len(df_check)}\n")
+    
